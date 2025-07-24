@@ -13,9 +13,9 @@
    }
 ]
 
--Detalhar agendamento: GET /agendamentos/<id>/
-
 -Criar agendamento: POST /agendamentos/
+
+-Detalhar agendamento: GET /agendamentos/<id>/
 
 -Deletar agendamento: DELETE /agendamentos/<id>
 
