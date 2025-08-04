@@ -20,3 +20,10 @@
 -Deletar agendamento: DELETE /agendamentos/<id>
 
 -Editar agendamento: PUT/PATCH /agendamentos/<id>
+
+
+"""
+- Qualquer cliente (autenticado ou não) seja capaz de criar um agendamento.
+- Apenas o prestador de serviço pode vizualizar todos os agendamentos em sua agenda.
+- Apenas o prestador de serviço pode manipular os seus agendamentos.
+"""
