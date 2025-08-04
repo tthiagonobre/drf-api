@@ -1,5 +1,4 @@
-from django.utils.timezone import make_aware
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 from rest_framework.test import APITestCase
 
@@ -15,7 +14,7 @@ class TestListagemAgendamentos(APITestCase):
       
    def test_listagem_de_agendamentos_criados(self):      
       Agendamento.objects.create(
-         data_horario = datetime(2025, 8, 2),
+         data_horario = datetime(2025, 8, 2, tzinfo=timezone.utc),
          nome_cliente = "Thiago",
          email_cliente = "tcardosonobre@gmail.com",
          telefone_cliente = "92988339327",
@@ -64,3 +63,17 @@ class TestCriacaoAgendamento(APITestCase):
       }
       
       self.assertEqual(data[0], agendamento_serialiazado)
+      
+      
+   def test_quando_o_request_e_invalido_retorna_400(self):
+      agendamento_request_data = {
+         "data_horario": "-08-02T00:00:00Z",
+         "nome_cliente": "Thiago",
+         "email_cliente": "tcardosonobre@gmail.com",
+         "telefone_cliente": "92988339327",
+         "cancelado": False,
+      }
+      
+      response = self.client.post("/api/agendamentos/", agendamento_request_data, format="json")
+      self.assertEqual(response.status_code, 400)
+      
