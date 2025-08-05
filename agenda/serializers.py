@@ -2,13 +2,14 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from rest_framework import serializers
 
+from agenda.libs import brasil_api
 from agenda.models import Agendamento
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
    class Meta:
       model = Agendamento
-      fields = ["id", "data_horario", "nome_cliente", "email_cliente", "telefone_cliente", "cancelado", "prestador"]
+      fields = ["id", "prestador", "data_horario", "nome_cliente", "email_cliente", "telefone_cliente", "cancelado"]
    
    prestador = serializers.CharField()
    
@@ -23,6 +24,9 @@ class AgendamentoSerializer(serializers.ModelSerializer):
    def validate_data_horario(self, value):
       if value < timezone.now():
          raise serializers.ValidationError("Agendamento não pode ser feito no passado!")
+      # Validação de feriado
+      if brasil_api.is_feriado(value.date()):
+         raise serializers.ValidationError("Não é possível agendar em feriados!")
       return value
    
    
@@ -34,3 +38,10 @@ class AgendamentoSerializer(serializers.ModelSerializer):
          raise serializers.ValidationError("Email brasileiro deve estar associado a telefone do Brasil (+55)")
       return attrs
    
+   
+class PrestadorSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = User
+      fields = ["id", "username", "agendamentos"]
+      
+   agendamentos = AgendamentoSerializer(many=True, read_only=True) 

@@ -7,9 +7,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import mixins, generics
 from rest_framework import permissions
-
-from agenda.serializers import AgendamentoSerializer
+from django.contrib.auth.models import User
+from agenda.serializers import AgendamentoSerializer, PrestadorSerializer
 from agenda.models import Agendamento
+from agenda.utils import get_horarios_disponiveis
+
 
 # Create your views here.
 class IsOwnerOrCreateOnly(permissions.BasePermission):
@@ -62,6 +64,12 @@ class AgendamentoList(generics.ListCreateAPIView):
       
       raise ValidationError({"error": "Valor inválido (use true ou false)."})
    
+   
+class PrestadorList(generics.ListAPIView):
+   permission_classes = [permissions.IsAdminUser]  # Apenas superuser pode acessar
+   serializer_class = PrestadorSerializer
+   queryset = User.objects.all()
+   
 
 @api_view(http_method_names=["GET"])
 def get_horario(request):
@@ -70,8 +78,6 @@ def get_horario(request):
       data = datetime.now().date()
    else:
       data = datetime.fromisoformat(data).date()
-      
+   
    horarios_disponiveis = sorted(list(get_horarios_disponiveis(data)))
    return JsonResponse(horarios_disponiveis, safe=False)
-
-
