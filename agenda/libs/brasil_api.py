@@ -1,10 +1,11 @@
 import requests
 from datetime import date
-from django.conf import TESTING
+from django.conf import settings
+
 
 def is_feriado(data: date) -> bool:
-   if TESTING == True:
-      if date.day == 25 and date.month == 12:
+   if getattr(settings, 'TESTING', False):
+      if data.day == 25 and data.month == 12:
          return True
       return False
    
