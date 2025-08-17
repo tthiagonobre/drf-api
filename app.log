@@ -1,0 +1,10 @@
+[INFO] 2025-08-17 00:43:47,871 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 01:23:59,679 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 01:23:59,695 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 01:24:00,459 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 01:24:01,099 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 01:24:01,101 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 01:24:01,697 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 01:24:01,702 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 01:24:02,259 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 01:24:02,816 django.request: Bad Request: /api/agendamentos/

@@ -1,0 +1,22 @@
+[INFO] 2025-08-17 00:35:19,272 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:37:42,331 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\tamarcado\settings\dev.py changed, reloading.
+[INFO] 2025-08-17 00:37:43,384 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:37:56,018 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\tamarcado\settings\dev.py changed, reloading.
+[INFO] 2025-08-17 00:37:56,833 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:38:03,884 root: Fazendo requisição para BrasilAPI para a data: 2025-12-25
+[DEBUG] 2025-08-17 00:38:03,887 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 00:38:04,680 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[INFO] 2025-08-17 00:39:32,209 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\agenda\libs\brasil_api.py changed, reloading.
+[INFO] 2025-08-17 00:39:32,885 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:39:36,114 root: Fazendo requisição para BrasilAPI para a data: 2025-12-25
+[DEBUG] 2025-08-17 00:39:36,119 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 00:39:36,719 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[ERROR] 2025-08-17 00:39:36,726 root: Algun erro ocorreu na BrasilAPI
+[INFO] 2025-08-17 00:39:45,902 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\agenda\libs\brasil_api.py changed, reloading.
+[INFO] 2025-08-17 00:39:46,552 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:39:59,145 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\agenda\libs\brasil_api.py changed, reloading.
+[INFO] 2025-08-17 00:40:00,723 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-08-17 00:40:05,980 root: Fazendo requisição para BrasilAPI para a data: 2025-12-25
+[DEBUG] 2025-08-17 00:40:05,986 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 00:40:06,614 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[INFO] 2025-08-17 00:41:38,812 django.utils.autoreload: C:\Users\Thiago\OneDrive\Área de Trabalho\Py-Django\drf-api\tamarcado\settings\base.py changed, reloading.

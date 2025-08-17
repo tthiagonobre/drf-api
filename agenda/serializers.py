@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 from agenda.libs import brasil_api
 from agenda.models import Agendamento
+from agenda import utils
 
 
 class AgendamentoSerializer(serializers.ModelSerializer):
@@ -28,6 +29,8 @@ class AgendamentoSerializer(serializers.ModelSerializer):
       if brasil_api.is_feriado(value.date()):
          raise serializers.ValidationError("Não é possível agendar em feriados!")
       return value
+      if not value in utils.get_horarios_disponiveis(value.date()):
+         raise serializers.ValidationError("Horário não disponível para agendamento!")
    
    
    def validate(self, attrs):
