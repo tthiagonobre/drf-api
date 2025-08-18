@@ -1,0 +1,4 @@
+-r requirements/common.txt
+gunicorn==23.0.0
+psycopg2==2.9.10
+whitenoise==6.0.0
