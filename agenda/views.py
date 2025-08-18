@@ -16,12 +16,22 @@ from agenda.utils import get_horarios_disponiveis
 # Create your views here.
 class IsOwnerOrCreateOnly(permissions.BasePermission):
    def has_permission(self, request, view):
+      # Para criar (POST) qualquer um pode (mesmo não autenticado)
       if request.method == "POST":
          return True
+
+      # Bloqueia quem não está logado
+      if not request.user.is_authenticated:
+         return False
+
+      # Só o dono pode acessar os dados dele
       username = request.query_params.get("username")
       if request.user.username == username:
          return True
+
       return False
+
+
    
 class IsPrestador(permissions.BasePermission):
    def has_object_permission(self, request, view, obj):

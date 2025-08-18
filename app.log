@@ -8,3 +8,79 @@
 [WARNING] 2025-08-17 01:24:01,702 django.request: Bad Request: /api/agendamentos/
 [WARNING] 2025-08-17 01:24:02,259 django.request: Bad Request: /api/agendamentos/
 [WARNING] 2025-08-17 01:24:02,816 django.request: Bad Request: /api/agendamentos/
+[INFO] 2025-08-17 20:06:48,488 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:06:48,517 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:06:50,407 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 20:06:51,067 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 20:06:51,070 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:06:51,710 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:06:51,735 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:06:52,316 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:06:52,879 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:06:55,037 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:06:55,583 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:06:56,838 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:11:11,590 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:11:11,599 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:11:12,258 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 20:11:12,879 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 20:11:12,879 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:11:13,506 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:11:13,511 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:11:14,062 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:11:14,605 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:11:16,714 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:11:17,249 django.request: Forbidden: /api/agendamentos/
+[INFO] 2025-08-17 20:11:17,252 root: Fazendo requisição para BrasilAPI para a data: 2026-08-03
+[DEBUG] 2025-08-17 20:11:17,254 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:11:17,869 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:11:19,108 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:14:47,690 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:14:47,690 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:14:48,538 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 20:14:49,184 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 20:14:49,189 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:14:49,769 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:14:49,773 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:14:50,350 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:14:50,956 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:14:53,329 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:14:53,876 django.request: Forbidden: /api/agendamentos/
+[INFO] 2025-08-17 20:14:53,878 root: Fazendo requisição para BrasilAPI para a data: 2026-08-03
+[DEBUG] 2025-08-17 20:14:53,881 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:14:54,463 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:14:55,891 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:17:09,344 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:17:09,349 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:17:10,002 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 20:17:10,599 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 20:17:10,605 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:17:11,193 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:17:11,204 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:17:11,749 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:17:12,304 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:17:14,399 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:17:14,935 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2025-08-17 20:17:14,935 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:17:14,939 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:17:14,939 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:17:14,939 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:17:15,559 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:17:16,821 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:20:05,149 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:20:05,153 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:20:06,125 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2025-08-17 20:20:06,750 root: Fazendo requisição para BrasilAPI para a data: 2026-12-25
+[DEBUG] 2025-08-17 20:20:06,754 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:20:07,363 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:20:07,374 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:20:07,921 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:20:08,449 django.request: Bad Request: /api/agendamentos/
+[WARNING] 2025-08-17 20:20:10,581 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:20:11,124 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2025-08-17 20:20:11,125 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-08-17 20:20:11,126 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-08-17 20:20:11,127 root: Fazendo requisição para BrasilAPI para a data: 2026-08-02
+[DEBUG] 2025-08-17 20:20:11,129 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-08-17 20:20:11,779 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2025-08-17 20:20:12,861 django.request: Forbidden: /api/prestadores/
