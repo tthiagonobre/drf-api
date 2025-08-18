@@ -13,3 +13,9 @@ requests==2.32.4
 sqlparse==0.5.3
 tzdata==2025.2
 urllib3==2.5.0
+
+# Extras necessários em todos os ambientes
+dj-database-url==3.0.1
+python-dotenv==1.1.1
+whitenoise==6.0.0
+psycopg2-binary==2.9.10
