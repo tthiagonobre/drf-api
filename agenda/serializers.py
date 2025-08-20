@@ -28,9 +28,9 @@ class AgendamentoSerializer(serializers.ModelSerializer):
       # Validação de feriado
       if brasil_api.is_feriado(value.date()):
          raise serializers.ValidationError("Não é possível agendar em feriados!")
-      return value
       if not value in utils.get_horarios_disponiveis(value.date()):
          raise serializers.ValidationError("Horário não disponível para agendamento!")
+      return value
    
    
    def validate(self, attrs):
