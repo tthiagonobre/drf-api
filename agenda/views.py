@@ -93,6 +93,6 @@ def get_horario(request):
    return JsonResponse(horarios_disponiveis, safe=False)
 
 
-@api_view(http_method_names=[GET])
+@api_view(http_method_names=["GET"])
 def healthcheck(request):
    return Response({"status": "OK"}, status=200)
