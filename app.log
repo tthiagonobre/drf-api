@@ -84,3 +84,181 @@
 [DEBUG] 2025-08-17 20:20:11,129 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
 [DEBUG] 2025-08-17 20:20:11,779 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
 [WARNING] 2025-08-17 20:20:12,861 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-09-18 14:01:04,661 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-09-18 14:01:23,812 root: Fazendo requisi豫o para BrasilAPI para a data: 2025-12-25
+[DEBUG] 2025-09-18 14:01:23,831 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-09-18 14:01:24,589 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[INFO] 2025-09-18 14:01:31,970 root: Fazendo requisi豫o para BrasilAPI para a data: 2025-11-25
+[DEBUG] 2025-09-18 14:01:31,974 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-09-18 14:01:34,185 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[ERROR] 2025-09-18 14:01:34,459 django.request: Internal Server Error: /api/horarios/
+Traceback (most recent call last):
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: agenda_agendamento
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\agenda\views.py", line 92, in get_horario
+    horarios_disponiveis = sorted(list(get_horarios_disponiveis(data)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\agenda\utils.py", line 21, in get_horarios_disponiveis
+    if not Agendamento.objects.filter(data_horario=start, cancelado=False).exists():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\query.py", line 1296, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: agenda_agendamento
+[WARNING] 2025-09-18 14:08:06,945 django.request: Not Found: /
+[WARNING] 2025-09-18 14:08:08,150 django.request: Not Found: /favicon.ico
+[INFO] 2025-09-18 14:08:26,122 root: Fazendo requisi豫o para BrasilAPI para a data: 2025-11-25
+[DEBUG] 2025-09-18 14:08:26,123 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-09-18 14:08:26,535 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[ERROR] 2025-09-18 14:08:26,643 django.request: Internal Server Error: /api/horarios/
+Traceback (most recent call last):
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: agenda_agendamento
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\agenda\views.py", line 92, in get_horario
+    horarios_disponiveis = sorted(list(get_horarios_disponiveis(data)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\agenda\utils.py", line 21, in get_horarios_disponiveis
+    if not Agendamento.objects.filter(data_horario=start, cancelado=False).exists():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\query.py", line 1296, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\query.py", line 674, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1591, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thiago\OneDrive\햞ea de Trabalho\Py-Django\drf-api\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: agenda_agendamento
+[INFO] 2025-09-18 14:11:07,202 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2025-09-18 14:11:12,447 root: Fazendo requisi豫o para BrasilAPI para a data: 2025-11-25
+[DEBUG] 2025-09-18 14:11:12,452 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-09-18 14:11:12,804 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[INFO] 2025-09-18 14:11:32,180 root: Fazendo requisi豫o para BrasilAPI para a data: 2025-11-25
+[DEBUG] 2025-09-18 14:11:32,182 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2025-09-18 14:11:32,510 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2025 HTTP/1.1" 200 None
+[WARNING] 2025-09-18 14:16:20,724 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-09-18 14:16:32,198 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-09-18 14:16:39,894 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-09-18 14:16:47,382 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2025-09-18 14:16:54,554 django.request: Forbidden: /api/prestadores/
+[WARNING] 2025-09-18 14:17:02,294 django.request: Forbidden: /api/prestadores/
+[INFO] 2025-09-18 14:44:09,368 django.utils.autoreload: Watching for file changes with StatReloader
+[WARNING] 2025-09-18 14:44:11,976 django.request: Not Found: /
+[WARNING] 2025-09-18 14:44:18,929 django.request: Forbidden: /api/agendamentos/
