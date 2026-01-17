@@ -262,3 +262,63 @@ django.db.utils.OperationalError: no such table: agenda_agendamento
 [INFO] 2025-09-18 14:44:09,368 django.utils.autoreload: Watching for file changes with StatReloader
 [WARNING] 2025-09-18 14:44:11,976 django.request: Not Found: /
 [WARNING] 2025-09-18 14:44:18,929 django.request: Forbidden: /api/agendamentos/
+[INFO] 2026-01-15 19:23:58,778 django.utils.autoreload: Watching for file changes with StatReloader
+[WARNING] 2026-01-15 19:24:08,248 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:24:23,744 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:24:46,285 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:24:53,658 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:25:04,262 django.request: Not Found: /
+[WARNING] 2026-01-15 19:26:08,308 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:26:12,487 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:27:57,735 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:28:05,851 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:28:13,925 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:28:24,813 django.request: Forbidden: /api/
+[WARNING] 2026-01-15 19:28:37,711 django.request: Forbidden: /api/
+[WARNING] 2026-01-15 19:29:03,880 django.request: Forbidden: /api/
+[WARNING] 2026-01-15 19:29:19,211 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:29:30,081 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:35:11,746 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:35:13,790 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:36:01,784 django.request: Forbidden: /api/horarios/
+[INFO] 2026-01-15 19:36:13,177 root: Fazendo requisição para BrasilAPI para a data: 2026-02-25
+[DEBUG] 2026-01-15 19:36:13,221 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2026-01-15 19:36:13,500 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2026-01-15 19:36:20,807 django.request: Forbidden: /api/prestadores/
+[WARNING] 2026-01-15 19:36:32,672 django.request: Forbidden: /api/prestadores/
+[WARNING] 2026-01-15 19:36:43,639 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:36:51,849 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:37:05,535 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:37:17,687 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:37:26,288 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:37:58,812 django.request: Not Found: /api/agendamentos//api/agendamentos/
+[WARNING] 2026-01-15 19:38:06,242 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:38:26,044 django.request: Forbidden: /api/agendamentos/
+[WARNING] 2026-01-15 19:38:32,332 django.request: Forbidden: /api/agendamentos/1/
+[WARNING] 2026-01-15 19:38:38,536 django.request: Not Found: /api/agendamentos/1//api/agendamentos/
+[WARNING] 2026-01-15 19:38:44,691 django.request: Not Found: /api/agendamentos/1//api/agendamentos/
+[WARNING] 2026-01-15 19:38:46,095 django.request: Not Found: /api/agendamentos/1//api/agendamentos/
+[WARNING] 2026-01-15 19:38:56,569 django.request: Not Found: /api/agendamentos/1//api/agendamentos/
+[WARNING] 2026-01-15 19:41:17,899 django.request: Forbidden: /api/prestadores/
+[WARNING] 2026-01-15 19:43:08,325 django.request: Forbidden: /api/prestadores/
+[WARNING] 2026-01-15 19:43:31,255 django.request: Forbidden: /api/agendamentos/
+[INFO] 2026-01-15 19:44:11,362 root: Fazendo requisição para BrasilAPI para a data: 2026-02-15
+[DEBUG] 2026-01-15 19:44:11,362 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2026-01-15 19:44:11,917 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[INFO] 2026-01-15 19:44:11,918 root: Fazendo requisição para BrasilAPI para a data: 2026-02-15
+[DEBUG] 2026-01-15 19:44:11,919 urllib3.connectionpool: Starting new HTTPS connection (1): brasilapi.com.br:443
+[DEBUG] 2026-01-15 19:44:12,122 urllib3.connectionpool: https://brasilapi.com.br:443 "GET /api/feriados/v1/2026 HTTP/1.1" 200 None
+[WARNING] 2026-01-16 01:16:07,944 django.request: Not Found: /api/agendamentos/1//api/agendamentos/
+[WARNING] 2026-01-16 01:16:14,252 django.request: Not Found: /api/agendamentos/1//api/agendamentos
+[WARNING] 2026-01-16 01:22:01,803 django.request: Not Found: /api/agendamentos/api/agendamentos/1/
+[WARNING] 2026-01-16 01:22:03,018 django.request: Not Found: /api/agendamentos/api/agendamentos/1/
+[WARNING] 2026-01-16 01:22:29,820 django.request: Not Found: /api/agendamentos/1/api/agendamentos
+[WARNING] 2026-01-16 01:23:26,400 django.request: Forbidden: /api/agendamentos/1/
+[INFO] 2026-01-16 02:07:55,412 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-16 02:10:09,888 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-01-16 02:10:10,310 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-16 02:15:01,920 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-01-16 02:15:02,194 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-16 02:15:55,731 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-01-16 02:15:56,020 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-16 02:25:54,682 django.utils.autoreload: Watching for file changes with StatReloader
