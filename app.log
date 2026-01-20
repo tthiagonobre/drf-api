@@ -262,3 +262,209 @@ django.db.utils.OperationalError: no such table: agenda_agendamento
 [INFO] 2025-09-18 14:44:09,368 django.utils.autoreload: Watching for file changes with StatReloader
 [WARNING] 2025-09-18 14:44:11,976 django.request: Not Found: /
 [WARNING] 2025-09-18 14:44:18,929 django.request: Forbidden: /api/agendamentos/
+[INFO] 2026-01-17 03:32:08,157 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-17 03:35:41,778 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/urls.py changed, reloading.
+[INFO] 2026-01-17 03:35:42,105 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-17 03:35:53,355 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/urls.py changed, reloading.
+[INFO] 2026-01-17 03:35:53,633 django.utils.autoreload: Watching for file changes with StatReloader
+[ERROR] 2026-01-17 03:36:27,221 django.request: Internal Server Error: /api/prestadores/
+Traceback (most recent call last):
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thiago/Projects/drf-api/agenda/views.py", line 91, in get_gera_relatorio_prestadores
+    result = gera_relatorio_prestadores.delay()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'delay'
+[INFO] 2026-01-17 03:37:39,766 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-01-17 03:37:40,083 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-17 03:38:06,550 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-01-17 03:38:06,835 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-17 03:38:22,194 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[INFO] 2026-01-17 03:40:26,443 django.utils.autoreload: /home/thiago/Projects/drf-api/tamarcado/celery.py changed, reloading.
+[INFO] 2026-01-17 03:40:26,799 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-17 03:41:40,277 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[INFO] 2026-01-17 03:43:35,648 django.utils.autoreload: /home/thiago/Projects/drf-api/tamarcado/celery.py changed, reloading.
+[INFO] 2026-01-17 03:43:35,941 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-17 03:44:33,660 django.utils.autoreload: /home/thiago/Projects/drf-api/tamarcado/celery.py changed, reloading.
+[INFO] 2026-01-17 03:44:33,958 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-17 03:44:41,247 celery.utils.functional: 
+def backend_cleanup():
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,248 celery.utils.functional: 
+def chain(*args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,248 celery.utils.functional: 
+def xstarmap(task, it):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,248 celery.utils.functional: 
+def accumulate(self, *args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,249 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,249 celery.utils.functional: 
+def chord(self, header, body, partial_args=0, interval=1, countdown=2, max_retries=3, eager=4, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,249 celery.utils.functional: 
+def chunks(task, it, n):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,250 celery.utils.functional: 
+def unlock_chord(self, group_id, callback, interval=0, max_retries=1, result=2, Result=3, GroupResult=4, result_from_tuple=5, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,250 celery.utils.functional: 
+def soma(a, b):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,251 celery.utils.functional: 
+def group(self, tasks, result, group_id, partial_args, add_to_parent=0):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:41,251 celery.utils.functional: 
+def xmap(task, it):
+    return 1
+
+[DEBUG] 2026-01-17 03:44:47,052 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[INFO] 2026-01-17 03:57:29,071 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-01-17 03:57:29,343 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-17 03:57:50,009 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[INFO] 2026-01-17 05:31:02,247 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-01-17 05:31:02,560 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-20 01:18:14,923 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-01-20 01:18:22,674 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-20 01:18:44,471 celery.utils.functional: 
+def backend_cleanup():
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,472 celery.utils.functional: 
+def chain(*args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,472 celery.utils.functional: 
+def xstarmap(task, it):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,472 celery.utils.functional: 
+def accumulate(self, *args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,473 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,473 celery.utils.functional: 
+def chord(self, header, body, partial_args=0, interval=1, countdown=2, max_retries=3, eager=4, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,473 celery.utils.functional: 
+def chunks(task, it, n):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,475 celery.utils.functional: 
+def unlock_chord(self, group_id, callback, interval=0, max_retries=1, result=2, Result=3, GroupResult=4, result_from_tuple=5, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,475 celery.utils.functional: 
+def soma(a, b):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,475 celery.utils.functional: 
+def group(self, tasks, result, group_id, partial_args, add_to_parent=0):
+    return 1
+
+[DEBUG] 2026-01-20 01:18:44,476 celery.utils.functional: 
+def xmap(task, it):
+    return 1
+
+[INFO] 2026-01-20 01:36:54,004 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-01-20 01:36:54,263 django.utils.autoreload: Watching for file changes with StatReloader
+[DEBUG] 2026-01-20 01:37:56,400 celery.utils.functional: 
+def backend_cleanup():
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,401 celery.utils.functional: 
+def chain(*args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,401 celery.utils.functional: 
+def xstarmap(task, it):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,401 celery.utils.functional: 
+def accumulate(self, *args, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,402 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,402 celery.utils.functional: 
+def chord(self, header, body, partial_args=0, interval=1, countdown=2, max_retries=3, eager=4, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,402 celery.utils.functional: 
+def chunks(task, it, n):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,403 celery.utils.functional: 
+def unlock_chord(self, group_id, callback, interval=0, max_retries=1, result=2, Result=3, GroupResult=4, result_from_tuple=5, **kwargs):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,404 celery.utils.functional: 
+def soma(a, b):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,404 celery.utils.functional: 
+def group(self, tasks, result, group_id, partial_args, add_to_parent=0):
+    return 1
+
+[DEBUG] 2026-01-20 01:37:56,404 celery.utils.functional: 
+def xmap(task, it):
+    return 1
+
+[DEBUG] 2026-01-20 01:38:44,097 celery.utils.functional: 
+def gera_relatorio_prestadores():
+    return 1
+

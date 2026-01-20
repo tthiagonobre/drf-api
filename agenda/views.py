@@ -1,8 +1,9 @@
-from datetime import datetime
+import csv
+from datetime import date, datetime
 from rest_framework.exceptions import ValidationError
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import mixins, generics
@@ -11,6 +12,7 @@ from django.contrib.auth.models import User
 from agenda.serializers import AgendamentoSerializer, PrestadorSerializer
 from agenda.models import Agendamento
 from agenda.utils import get_horarios_disponiveis
+from agenda.tasks import gera_relatorio_prestadores
 
 
 # Create your views here.
@@ -75,10 +77,21 @@ class AgendamentoList(generics.ListCreateAPIView):
       raise ValidationError({"error": "Valor inválido (use true ou false)."})
    
    
-class PrestadorList(generics.ListAPIView):
-   permission_classes = [permissions.IsAdminUser]  # Apenas superuser pode acessar
-   serializer_class = PrestadorSerializer
-   queryset = User.objects.all()
+@api_view(http_method_names=["GET"])
+@permission_classes([permissions.IsAdminUser])   
+def get_gera_relatorio_prestadores(request):
+   if request.query_params.get("formato") == "csv":
+      # data_hoje = date.today()
+      # response = HttpResponse(
+      #    content_type="text/csv",
+      #    headers={"Content-Disposition": f'attachment; filename="relatorio_{data_hoje}.csv"'},
+      # )     
+      result = gera_relatorio_prestadores.delay()
+      return Response({"task_id": result.task_id})
+   else:
+      prestadores = User.objects.all()
+      serializer = PrestadorSerializer(prestadores, many=True)
+      return Response(serializer.data)
    
 
 @api_view(http_method_names=["GET"])
@@ -96,3 +109,6 @@ def get_horario(request):
 @api_view(http_method_names=["GET"])
 def healthcheck(request):
    return Response({"status": "OK"}, status=200)
+
+
+#126
