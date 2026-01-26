@@ -1,0 +1,52 @@
+# render.yaml
+# Este arquivo define a infraestrutura como código para o seu projeto no Render.
+# Visite https://render.com/docs/blueprint-spec para mais detalhes.
+
+services:
+  # -----------------
+  # Serviço Web (Django/Gunicorn)
+  # -----------------
+  - type: web
+    name: tamarcado-api
+    env: python
+    # Define a versão do Python a partir do runtime.txt
+    pythonVersion: python-3.10.9
+    # Comando para construir a aplicação
+    buildCommand: ./build.sh
+    # Comando para iniciar a aplicação (do Procfile)
+    startCommand: gunicorn tamarcado.wsgi --log-file -
+    # Variáveis de ambiente
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true # Gera um valor seguro automaticamente
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: tamarcado-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: tamarcado-redis
+          property: connectionString
+      - key: PYTHON_VERSION
+        value: 3.10.9
+      - key: DJANGO_SETTINGS_MODULE
+        value: tamarcado.settings.prod
+
+  # -----------------
+  # Banco de Dados (PostgreSQL)
+  # -----------------
+  - type: pserv
+    name: tamarcado-db
+    env: postgres
+    # Versão do PostgreSQL (pode ajustar se necessário)
+    postgresMajorVersion: 13
+
+  # -----------------
+  # Redis
+  # -----------------
+  - type: redis
+    name: tamarcado-redis
+    ipAllowList: [] # Permite acesso de qualquer lugar (adequado para a maioria dos casos)
+    plan: free # Define o plano (pode ser 'starter' ou 'standard' para produção)
