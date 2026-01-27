@@ -9,8 +9,7 @@ services:
   - type: web
     name: tamarcado-api
     env: python
-    # Define a versão do Python a partir do runtime.txt
-    pythonVersion: python-3.10.9
+    # O Render infere a versão do Python a partir do arquivo runtime.txt
     # Comando para construir a aplicação
     buildCommand: ./build.sh
     # Comando para iniciar a aplicação (do Procfile)
@@ -29,8 +28,6 @@ services:
           type: redis
           name: tamarcado-redis
           property: connectionString
-      - key: PYTHON_VERSION
-        value: 3.10.9
       - key: DJANGO_SETTINGS_MODULE
         value: tamarcado.settings.prod
 
