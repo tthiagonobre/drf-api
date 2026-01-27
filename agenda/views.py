@@ -76,7 +76,6 @@ class AgendamentoList(generics.ListCreateAPIView):
       
       raise ValidationError({"error": "Valor inválido (use true ou false)."})
    
-   
 @api_view(http_method_names=["GET"])
 @permission_classes([permissions.IsAdminUser])   
 def get_gera_relatorio_prestadores(request):
