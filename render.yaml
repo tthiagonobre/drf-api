@@ -1,5 +1,5 @@
 services:
-  # Serviço da API (Web)
+  # Serviço 1: Sua API Django (Web)
   - type: web
     name: tamarcado-api
     env: python
@@ -9,16 +9,13 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: tamarcado.settings.prod
       - key: DATABASE_URL
-        fromDatabase:
-          name: tamarcado-db
-          property: connectionString
+        sync: false # Você colará o valor do Neon.tech no painel do Render
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: tamarcado-redis
-          property: connectionString
+        sync: false # Você colará o valor do Upstash no painel do Render
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
 
-  # Serviço do Celery (Worker) - Crucial para suas tasks de e-mail
+  # Serviço 2: O Worker do Celery (Necessário para suas tasks)
   - type: worker
     name: tamarcado-worker
     env: python
@@ -28,22 +25,6 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: tamarcado.settings.prod
       - key: DATABASE_URL
-        fromDatabase:
-          name: tamarcado-db
-          property: connectionString
+        sync: false
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: tamarcado-redis
-          property: connectionString
-
-  # Instância do Redis
-  - type: redis
-    name: tamarcado-redis
-    plan: free
-    ipAllowList: []
-
-# Banco de Dados Gerenciado (Postgres)
-databases:
-  - name: tamarcado-db
-    plan: free
+        sync: false
