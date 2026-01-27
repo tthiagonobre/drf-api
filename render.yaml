@@ -46,5 +46,4 @@ services:
 # Banco de Dados Gerenciado (Postgres)
 databases:
   - name: tamarcado-db
-    postgresMajorVersion: "13"
     plan: free
