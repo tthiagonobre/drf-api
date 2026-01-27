@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from agenda.serializers import AgendamentoSerializer, PrestadorSerializer
 from agenda.models import Agendamento
 from agenda.utils import get_horarios_disponiveis
+from agenda.tasks import gera_relatorio_prestadores
 
 
 # Create your views here.
@@ -75,34 +76,22 @@ class AgendamentoList(generics.ListCreateAPIView):
       
       raise ValidationError({"error": "Valor inválido (use true ou false)."})
    
-
 @api_view(http_method_names=["GET"])
 @permission_classes([permissions.IsAdminUser])   
-def relatorio_prestadores(request):
-   formato = request.query_params.get("formato")
-   prestadores = User.objects.all()
-   serializer = PrestadorSerializer(prestadores, many=True)
-   if formato == "csv":
-      data_hoje = date.today()
-      response = HttpResponse(
-         content_type="text/csv",
-         headers={"Content-Disposition": f'attachment; filename="relatorio_{data_hoje}.csv"'},
-      )     
-      writer = csv.writer(response)
-      for prestador in serializer.data:
-         agendamentos = prestador["agendamentos"]
-         for agendamento in agendamentos:
-            writer.writerow([
-               agendamento["prestador"],
-               agendamento["nome_cliente"],
-               agendamento["email_cliente"],
-               agendamento["telefone_cliente"],
-               agendamento["data_horario"],
-            ])
-      return response
+def get_gera_relatorio_prestadores(request):
+   if request.query_params.get("formato") == "csv":
+      # data_hoje = date.today()
+      # response = HttpResponse(
+      #    content_type="text/csv",
+      #    headers={"Content-Disposition": f'attachment; filename="relatorio_{data_hoje}.csv"'},
+      # )     
+      result = gera_relatorio_prestadores.delay()
+      return Response({"task_id": result.task_id})
    else:
+      prestadores = User.objects.all()
+      serializer = PrestadorSerializer(prestadores, many=True)
       return Response(serializer.data)
-
+   
 
 @api_view(http_method_names=["GET"])
 def get_horario(request):
@@ -119,3 +108,6 @@ def get_horario(request):
 @api_view(http_method_names=["GET"])
 def healthcheck(request):
    return Response({"status": "OK"}, status=200)
+
+
+#126

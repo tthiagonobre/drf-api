@@ -1,1 +1,1 @@
-web: gunicorn tamarcado.wsgi
+web: gunicorn tamarcado.wsgi --log-file -
