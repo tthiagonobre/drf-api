@@ -1,30 +1,91 @@
+# ===================================================================
+# render.yaml - Infraestrutura como Código para o projeto tamarcado-api
+# ===================================================================
+# Este arquivo define todos os serviços, bancos de dados e configurações
+# necessários para rodar a aplicação no Render.
+#
+# Documentação da especificação: https://render.com/docs/blueprint-spec
+# ===================================================================
+
+# -------------------------------------------------------------------
+# Grupo de Variáveis de Ambiente
+# -------------------------------------------------------------------
+# Agrupa variáveis que serão compartilhadas entre os serviços (web e worker).
+envVarGroups:
+  - name: tamarcado-env
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true # Render gera e gerencia a chave secreta
+      - key: DJANGO_SETTINGS_MODULE
+        value: tamarcado.settings.prod
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: tamarcado-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: tamarcado-redis
+          property: connectionString
+
 services:
-  # Serviço 1: Sua API Django (Web)
+  # -------------------------------------------------------------------
+  # 1. Serviço Web (API Django com Gunicorn)
+  # -------------------------------------------------------------------
+  # Responsável por receber requisições HTTP e rodar a aplicação.
   - type: web
     name: tamarcado-api
     env: python
-    buildCommand: ./build.sh
-    startCommand: gunicorn tamarcado.wsgi --log-file -
-    envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: tamarcado.settings.prod
-      - key: DATABASE_URL
-        sync: false # Você colará o valor do Neon.tech no painel do Render
-      - key: REDIS_URL
-        sync: false # Você colará o valor do Upstash no painel do Render
-      - key: DJANGO_SECRET_KEY
-        generateValue: true
+    region: oregon # Região do servidor. Opções: oregon (EUA), frankfurt (Europa)
+    plan: free    # Plano gratuito (o serviço "dorme" após 15 min de inatividade)
 
-  # Serviço 2: O Worker do Celery (Necessário para suas tasks)
+    # Comando para instalar dependências e aplicar migrações.
+    buildCommand: "./build.sh"
+
+    # Comando para iniciar o servidor web.
+    startCommand: "gunicorn tamarcado.wsgi --log-file -"
+
+    # O Render acessa esta rota para verificar se a aplicação está saudável.
+    healthCheckPath: /api/v1/horarios/
+
+    # Utiliza o grupo de variáveis de ambiente definido acima.
+    envVarGroup: tamarcado-env
+
+  # -------------------------------------------------------------------
+  # 2. Worker do Celery
+  # -------------------------------------------------------------------
+  # Responsável por executar tarefas em segundo plano (ex: enviar emails).
   - type: worker
     name: tamarcado-worker
     env: python
-    buildCommand: ./build.sh
-    startCommand: celery -A tamarcado worker -l info
-    envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: tamarcado.settings.prod
-      - key: DATABASE_URL
-        sync: false
-      - key: REDIS_URL
-        sync: false
+    region: oregon
+    plan: free
+
+    # O Render aproveita o build do serviço web, mas podemos ser explícitos.
+    buildCommand: "./build.sh"
+
+    # Comando para iniciar o worker do Celery.
+    startCommand: "celery -A tamarcado worker --loglevel=info"
+
+    # Utiliza o mesmo grupo de variáveis de ambiente.
+    envVarGroup: tamarcado-env
+
+  # -------------------------------------------------------------------
+  # 3. Banco de Dados (PostgreSQL)
+  # -------------------------------------------------------------------
+  - type: pserv
+    name: tamarcado-db
+    env: postgres
+    region: oregon
+    plan: free # Plano gratuito (o banco é suspenso após 90 dias de inatividade)
+    databaseVersion: "13"
+
+  # -------------------------------------------------------------------
+  # 4. Redis
+  # -------------------------------------------------------------------
+  # Usado como "message broker" para o Celery e para cache.
+  - type: redis
+    name: tamarcado-redis
+    region: oregon
+    plan: free
