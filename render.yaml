@@ -1,49 +1,33 @@
-# render.yaml
-# Este arquivo define a infraestrutura como código para o seu projeto no Render.
-# Visite https://render.com/docs/blueprint-spec para mais detalhes.
-
 services:
-  # -----------------
-  # Serviço Web (Django/Gunicorn)
-  # -----------------
   - type: web
     name: tamarcado-api
     env: python
-    # O Render infere a versão do Python a partir do arquivo runtime.txt
-    # Comando para construir a aplicação
     buildCommand: ./build.sh
-    # Comando para iniciar a aplicação (do Procfile)
     startCommand: gunicorn tamarcado.wsgi --log-file -
-    # Variáveis de ambiente
     envVars:
       - key: DJANGO_SECRET_KEY
-        generateValue: true # Gera um valor seguro automaticamente
+        generateValue: true
       - key: DATABASE_URL
-        fromService:
-          type: pserv
+        fromDatabase: # Alterado de fromService para fromDatabase
           name: tamarcado-db
           property: connectionString
       - key: REDIS_URL
-        fromService:
-          type: redis
+        fromRedis:    # Alterado de fromService para fromRedis
           name: tamarcado-redis
           property: connectionString
       - key: DJANGO_SETTINGS_MODULE
         value: tamarcado.settings.prod
+      - key: SENDGRID_API_KEY
+        sync: false # Recomendo definir manualmente no painel do Render por segurança
 
-  # -----------------
-  # Banco de Dados (PostgreSQL)
-  # -----------------
-  - type: pserv
-    name: tamarcado-db
-    env: postgres
-    # Versão do PostgreSQL (pode ajustar se necessário)
-    postgresMajorVersion: 13
+# Bancos de dados gerenciados ficam fora de 'services'
+databases:
+  - name: tamarcado-db
+    postgresMajorVersion: "13"
+    plan: free
 
-  # -----------------
-  # Redis
-  # -----------------
-  - type: redis
-    name: tamarcado-redis
-    ipAllowList: [] # Permite acesso de qualquer lugar (adequado para a maioria dos casos)
-    plan: free # Define o plano (pode ser 'starter' ou 'standard' para produção)
+# Instâncias Redis gerenciadas também ficam fora de 'services'
+redis:
+  - name: tamarcado-redis
+    plan: free
+    ipAllowList: []
