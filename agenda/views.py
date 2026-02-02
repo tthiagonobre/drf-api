@@ -81,11 +81,6 @@ class AgendamentoList(generics.ListCreateAPIView):
 @permission_classes([permissions.IsAdminUser])   
 def get_gera_relatorio_prestadores(request):
    if request.query_params.get("formato") == "csv":
-      # data_hoje = date.today()
-      # response = HttpResponse(
-      #    content_type="text/csv",
-      #    headers={"Content-Disposition": f'attachment; filename="relatorio_{data_hoje}.csv"'},
-      # )     
       result = gera_relatorio_prestadores.delay()
       return Response({"task_id": result.task_id})
    else:

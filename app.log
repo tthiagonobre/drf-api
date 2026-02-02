@@ -974,3 +974,27 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 [INFO] 2026-01-31 05:00:21,450 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
 [INFO] 2026-01-31 05:00:21,919 django.utils.autoreload: Watching for file changes with StatReloader
 [INFO] 2026-02-02 16:56:34,290 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 17:34:42,091 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:15:33,675 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-02-02 18:15:34,144 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:24:34,449 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-02-02 18:24:34,696 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:24:50,040 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-02-02 18:24:50,320 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:25:24,842 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:25:25,140 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:25:38,527 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:25:38,826 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:25:58,233 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:25:58,539 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:26:07,912 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:26:08,214 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:28:49,877 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-02-02 18:28:50,167 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:29:15,643 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/tasks.py changed, reloading.
+[INFO] 2026-02-02 18:29:15,923 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:29:24,247 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:29:24,517 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:29:29,850 django.utils.autoreload: /home/thiago/Projects/drf-api/agenda/views.py changed, reloading.
+[INFO] 2026-02-02 18:29:30,113 django.utils.autoreload: Watching for file changes with StatReloader
+[INFO] 2026-02-02 18:32:07,548 django.utils.autoreload: Watching for file changes with StatReloader

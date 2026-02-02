@@ -9,8 +9,7 @@ from tamarcado.celery import app
 from django.core.mail import EmailMessage
 
 
-@app.task
-def gera_relatorio_prestadores():
+def gera_relatorio():
    output = StringIO()
    writer = csv.writer(output)
    writer.writerow([
@@ -22,7 +21,7 @@ def gera_relatorio_prestadores():
       "cancelado",
    ])
    
-   prestadores = User.objects.all()
+   prestadores = User.objects.all().prefetch_related('agendamentos')
    serializer = PrestadorSerializer(prestadores, many=True)
    for prestador in serializer.data:
       for agendamento in prestador["agendamentos"]:
@@ -35,11 +34,23 @@ def gera_relatorio_prestadores():
                   agendamento["cancelado"],
                ])
    
+   conteudo = output.getvalue()
+   output.close()
+   return conteudo
+   
+   
+def envia_email_com_anexo(conteudo_csv, destinatario):
    email = EmailMessage(
       'tamarcado - Relatório de prestadores',
       'Em anexo o relatório solicitado.',
       'tcardosonobre@gmail.com',
-      ['thiagocardoso.nobre@gmail.com'],
+      [destinatario],
    )            
-   email.attach("relatorio.csv", output.getvalue(), "text/csv")
+   email.attach("relatorio.csv", conteudo_csv, "text/csv")
    email.send()
+
+
+@app.task
+def gera_relatorio_prestadores(destinatario="thiagocardoso.nobre@gmail.com"):
+   csv_data = gera_relatorio()
+   envia_email_com_anexo(csv_data, destinatario)
