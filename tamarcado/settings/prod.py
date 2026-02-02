@@ -10,11 +10,14 @@ DEBUG = False
 
 # Chave secreta do Django
 # No Render, defina a variável de ambiente DJANGO_SECRET_KEY
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", SECRET_KEY)
 
 # Hosts permitidos
 # O Render define RENDER_EXTERNAL_HOSTNAME automaticamente
-ALLOWED_HOSTS = [os.environ.get("RENDER_EXTERNAL_HOSTNAME", "localhost")]
+ALLOWED_HOSTS = [
+    os.environ.get("RENDER_EXTERNAL_HOSTNAME", "localhost"),
+    "127.0.0.1", # Adicione esta linha para testes locais
+]
 
 # Adiciona o host do serviço do Render para health checks
 RENDER_INTERNAL_HOSTNAME = os.environ.get('RENDER_INTERNAL_HOSTNAME')
@@ -23,11 +26,15 @@ if RENDER_INTERNAL_HOSTNAME:
 
 # Configuração do banco de dados usando DATABASE_URL
 # No Render, crie um serviço de banco de dados e use sua "Internal Connection URL"
+# Configuração dinâmica para aceitar SQLite local ou Postgres em produção
+db_url = os.environ.get("DATABASE_URL")
+
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+        default=db_url,
         conn_max_age=600,
-        ssl_require=True
+        # Só exige SSL se não for um banco SQLite
+        ssl_require=False if db_url and db_url.startswith("sqlite") else True
     )
 }
 
@@ -68,4 +75,4 @@ DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
 REDIS_URL = os.getenv("REDIS_URL")
 if not REDIS_URL:
-    raise RuntimeError("REDIS_URL não definida")
+    REDIS_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
